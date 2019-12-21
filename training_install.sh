@@ -1,10 +1,11 @@
 #!/bin/bash
+HOMEPATH=$(pwd)
 echo "Updating Linux"
 sudo add-apt-repository ppa:graphics-drivers/ppa -y
 sudo apt-get update
 echo "Upgrading Linux"
 sudo apt-get upgrade -y
-sudo apt-get install curl vim build-essential linux-headers-generic  qttools5-dev qttools5-dev-tools libqt5svg5-dev qtmultimedia5-dev build-essential automake autoconf libgtk2.0-dev libglib2.0-dev flex bison libpcap-dev libgcrypt20-dev cmake apache2 p7zip git -y
+sudo apt-get install curl vim build-essential linux-headers-generic  qttools5-dev qttools5-dev-tools libqt5svg5-dev qtmultimedia5-dev  automake autoconf libgtk2.0-dev libglib2.0-dev flex bison libpcap-dev libgcrypt20-dev cmake apache2 p7zip git net-tools libnetfilter-queue-dev unzip golang libusb-1.0-0-dev nmap libssl-dev libnl-genl-3-dev libnl-idiag-3-200 libnl-idiag-3-dev -y
 cd installers
 echo "Installing Wireshark"
 wget "https://2.na.dl.wireshark.org/src/wireshark-3.2.0.tar.xz"
@@ -36,7 +37,24 @@ sudo ln -s /usr/bin/hashcat64.bin /usr/bin/hashcat
 sudo cp -Rv OpenCL/ /usr/bin/
 sudo cp hashcat.hcstat2 /usr/bin/
 sudo cp hashcat.hctune /usr/bin/
-cd ../..
-echo "Hashcat installed"
+cd ..
+echo "Hashcat Installed"
+echo "Installing Bettercap"
+GOPATH=~/go/bin/
+go github.com/bettercap/bettercap
+cd /home/user/go/src/github.com/bettercap/bettercap
+make build 
+sudo make install
+echo "Bettercap Installed"
+echo "Installing Aircrack-ng"
+cd $HOMEPATH/installers
+tar -zxvf aircrack-ng-1.5.2.tar.gz
+cd aircrack-ng-1.5.2
+autoreconf -i
+./configure --with-experimental
+make
+sudo make install
+sudo ldconfig
+echo "aircrack installed" 
 echo "Removing installers"
 rm -r installers
