@@ -31,7 +31,7 @@ sudo apt-get install mesa-common-dev
 sudo apt-get install freeglut3-dev -y
 cd installers
 sudo p7zip -d hashcat-5.1.0.7z
-cd hashcat-5.1.0.7
+cd hashcat-5.1.0
 sudo cp hashcat64.bin /usr/bin/
 sudo ln -s /usr/bin/hashcat64.bin /usr/bin/hashcat
 sudo cp -Rv OpenCL/ /usr/bin/
@@ -41,7 +41,7 @@ cd ..
 echo "Hashcat Installed"
 echo "Installing Bettercap"
 GOPATH=~/go/bin/
-go github.com/bettercap/bettercap
+go get github.com/bettercap/bettercap
 cd /home/user/go/src/github.com/bettercap/bettercap
 make build 
 sudo make install
