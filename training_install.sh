@@ -18,6 +18,7 @@ sudo make install
 echo "Wireshark installed"
 cd ..
 echo "Installing VMware"
+wget https://download3.vmware.com/software/wkst/file/VMware-Workstation-Full-15.5.1-15018445.x86_64.bundle
 sudo chmod +x 'VMware-Workstation-Full-15.5.1-15018445.x86_64.bundle' 
 sudo ./'VMware-Workstation-Full-15.5.1-15018445.x86_64.bundle'
 echo "installing Metasploit"
