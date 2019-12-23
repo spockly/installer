@@ -56,6 +56,7 @@ autoreconf -i
 make
 sudo make install
 sudo ldconfig
-echo "aircrack installed" 
+echo "aircrack installed"
+cd ..
 echo "Removing installers"
 rm -r installers
