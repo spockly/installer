@@ -57,6 +57,6 @@ make
 sudo make install
 sudo ldconfig
 echo "aircrack installed"
-cd ..
+cd ../..
 echo "Removing installers"
 rm -r installers
