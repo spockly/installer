@@ -48,7 +48,7 @@ make build
 sudo make install
 echo "Bettercap Installed"
 echo "Installing Aircrack-ng"
-cd $HOMEPATH/installers
+cd $HOMEPATH/installer/installers
 tar -zxvf aircrack-ng-1.5.2.tar.gz
 cd aircrack-ng-1.5.2
 autoreconf -i
