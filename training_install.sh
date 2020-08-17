@@ -5,7 +5,7 @@ sudo add-apt-repository ppa:graphics-drivers/ppa -y
 sudo apt-get update
 echo "Upgrading Linux"
 sudo apt-get upgrade -y
-sudo apt-get install libusb-1.0-0-dev libpcap-dev libnetfilter-queue-dev p7zip code terminator curl vim build-essential linux-headers-generic  qttools5-dev qttools5-dev-tools libqt5svg5-dev qtmultimedia5-dev  automake autoconf libgtk2.0-dev libglib2.0-dev flex bison libpcap-dev libgcrypt20-dev cmake apache2 p7zip git net-tools libnetfilter-queue-dev unzip golang libusb-1.0-0-dev nmap libssl-dev libnl-genl-3-dev libnl-idiag-3-200 libnl-idiag-3-dev chromium-browser golang-go -y
+sudo apt-get install libusb-1.0-0-dev libpcap-dev libpcap0.8-dev libnetfilter-queue-dev p7zip code terminator curl vim build-essential linux-headers-generic  qttools5-dev qttools5-dev-tools libqt5svg5-dev qtmultimedia5-dev  automake autoconf libgtk2.0-dev libglib2.0-dev flex bison libpcap-dev libgcrypt20-dev cmake apache2 p7zip git net-tools libnetfilter-queue-dev unzip golang libusb-1.0-0-dev nmap libssl-dev libnl-genl-3-dev libnl-idiag-3-200 libnl-idiag-3-dev chromium-browser golang-go -y
 cd installers
 echo "Installing Wireshark"
 wget "https://www.wireshark.org/download/src/wireshark-3.2.6.tar.xz"
