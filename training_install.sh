@@ -54,19 +54,12 @@ make build
 sudo make install
 echo "Bettercap Installed"
 echo "Installing Aircrack-ng"
-cd $HOMEPATH/installers
-tar -zxvf aircrack-ng-1.5.2.tar.gz
-cd aircrack-ng-1.5.2
-autoreconf -i
-./configure --with-experimental
-make
-sudo make install
-sudo ldconfig
+sudo apt-get install -y aircrack-ng
 echo "aircrack installed"
 echo "Installing Google Earth"
 sudo apt install gdebi-core wget
 wget https://dl.google.com/dl/earth/client/current/google-earth-pro-stable_current_amd64.deb
 sudo gdebi google-earth-pro-stable_current_amd64.deb 
-cd ../../../
+cd $HOMEPATH
 echo "Removing installers"
-rm -r installers
+sudo rm -r -f installers
