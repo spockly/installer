@@ -5,34 +5,36 @@ sudo add-apt-repository ppa:graphics-drivers/ppa -y
 sudo apt-get update
 echo "Upgrading Linux"
 sudo apt-get upgrade -y
-sudo apt-get install curl vim build-essential linux-headers-generic  qttools5-dev qttools5-dev-tools libqt5svg5-dev qtmultimedia5-dev  automake autoconf libgtk2.0-dev libglib2.0-dev flex bison libpcap-dev libgcrypt20-dev cmake apache2 p7zip git net-tools libnetfilter-queue-dev unzip golang libusb-1.0-0-dev nmap libssl-dev libnl-genl-3-dev libnl-idiag-3-200 libnl-idiag-3-dev chromium-browser -y
+sudo apt-get install code terminator curl vim build-essential linux-headers-generic  qttools5-dev qttools5-dev-tools libqt5svg5-dev qtmultimedia5-dev  automake autoconf libgtk2.0-dev libglib2.0-dev flex bison libpcap-dev libgcrypt20-dev cmake apache2 p7zip git net-tools libnetfilter-queue-dev unzip golang libusb-1.0-0-dev nmap libssl-dev libnl-genl-3-dev libnl-idiag-3-200 libnl-idiag-3-dev chromium-browser -y
 cd installers
 echo "Installing Wireshark"
-wget "https://2.na.dl.wireshark.org/src/wireshark-3.2.0.tar.xz"
-tar Jxf wireshark-3.2.0.tar.xz wireshark-3.2.0/
+wget "https://www.wireshark.org/download/src/wireshark-3.2.6.tar.xz"
+tar Jxf wireshark-3.2.6.tar.xz wireshark-3.2.6/
+cd wireshark-3.2.6
 mkdir build 
 cd build
-cmake ../wireshark-3.2.0
+cmake ../
 make
 sudo make install
 echo "Wireshark installed"
-cd ..
+cd ../../
 echo "Installing VMware"
-wget https://download3.vmware.com/software/wkst/file/VMware-Workstation-Full-15.5.1-15018445.x86_64.bundle
-sudo chmod +x 'VMware-Workstation-Full-15.5.1-15018445.x86_64.bundle' 
-sudo ./'VMware-Workstation-Full-15.5.1-15018445.x86_64.bundle'
+wget --user-agent="Mozilla/5.0 (X11; Linux x86_64; rv:75.0) Gecko/20100101 Firefox/75.0" https://www.vmware.com/go/getplayer-linux
+chmod +x getplayer-linux
+sudo ./getplayer-linux
 echo "installing Metasploit"
 sudo chmod +x msfinstall
 sudo ./msfinstall
 echo "Metasploit is installed"
 msfupdate
 echo "Installing Hashcat"
-sudo apt install -y ocl-icd-libopencl1 nvidia-driver-435 nvidia-cuda-toolkit
+sudo apt-get install -y ocl-icd-libopencl1  nvidia-cuda-toolkit
 sudo apt-get install mesa-common-dev
 sudo apt-get install freeglut3-dev -y
 cd installers
-sudo p7zip -d hashcat-5.1.0.7z
-cd hashcat-5.1.0
+wget https://hashcat.net/files/hashcat-6.1.1.7z
+sudo p7zip -d hashcat-6.1.1.7z
+cd hashcat-6.1.1
 sudo cp hashcat64.bin /usr/bin/
 sudo ln -s /usr/bin/hashcat64.bin /usr/bin/hashcat
 sudo cp -Rv OpenCL/ /usr/bin/
@@ -57,6 +59,6 @@ make
 sudo make install
 sudo ldconfig
 echo "aircrack installed"
-cd ../..
+cd ../../../
 echo "Removing installers"
 rm -r installers
