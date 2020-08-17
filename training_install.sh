@@ -28,12 +28,13 @@ sudo ./msfinstall
 echo "Metasploit is installed"
 msfupdate
 echo "Installing Hashcat"
-wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/cuda-ubuntu2004.pinsudo 
-mv cuda-ubuntu2004.pin /etc/apt/preferences.d/cuda-repository-pin-600
+wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/cuda-ubuntu2004.pin
+sudo mv cuda-ubuntu2004.pin /etc/apt/preferences.d/cuda-repository-pin-600
 wget https://developer.download.nvidia.com/compute/cuda/11.0.3/local_installers/cuda-repo-ubuntu2004-11-0-local_11.0.3-450.51.06-1_amd64.deb
 sudo dpkg -i cuda-repo-ubuntu2004-11-0-local_11.0.3-450.51.06-1_amd64.deb
 sudo apt-key add /var/cuda-repo-ubuntu2004-11-0-local/7fa2af80.pub
-sudo apt-get updatesudo apt-get -y install cuda
+sudo apt-get update
+sudo apt-get -y install cuda
 cd installers
 wget https://hashcat.net/files/hashcat-6.1.1.7z
 sudo p7zip -d hashcat-6.1.1.7z
@@ -62,6 +63,10 @@ make
 sudo make install
 sudo ldconfig
 echo "aircrack installed"
+echo "Installing Google Earth"
+sudo apt install gdebi-core wget
+wget https://dl.google.com/dl/earth/client/current/google-earth-pro-stable_current_amd64.deb
+sudo gdebi google-earth-pro-stable_current_amd64.deb 
 cd ../../../
 echo "Removing installers"
 rm -r installers
