@@ -36,15 +36,7 @@ sudo apt-key add /var/cuda-repo-ubuntu2004-11-0-local/7fa2af80.pub
 sudo apt-get update
 sudo apt-get -y install cuda
 cd installers
-wget https://hashcat.net/files/hashcat-6.1.1.7z
-sudo p7zip -d hashcat-6.1.1.7z
-cd hashcat-6.1.1
-sudo cp hashcat64.bin /usr/bin/
-sudo ln -s /usr/bin/hashcat64.bin /usr/bin/hashcat
-sudo cp -Rv OpenCL/ /usr/bin/
-sudo cp hashcat.hcstat2 /usr/bin/
-sudo cp hashcat.hctune /usr/bin/
-cd ..
+sudo apt-get install hashcat
 echo "Hashcat Installed"
 echo "Installing Bettercap"
 GOPATH=~/go/bin/
