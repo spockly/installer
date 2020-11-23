@@ -10,8 +10,8 @@ sudo apt-get install exfat-utils exfat-fuse autoconf libuhd-dev libuhd3.15.0 uhd
 cd installers
 echo "Installing Wireshark"
 wget "https://www.wireshark.org/download/src/wireshark-3.2.6.tar.xz"
-tar Jxf wireshark-3.2.6.tar.xz wireshark-3.2.6/
-cd wireshark-3.2.6
+tar Jxf wireshark-3.4.0.tar.xz wireshark-3.4.0/
+cd wireshark-3.4.0
 mkdir build 
 cd build
 cmake ../
